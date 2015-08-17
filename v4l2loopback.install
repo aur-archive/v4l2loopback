@@ -1,0 +1,13 @@
+post_install() {
+  depmod $(cat /usr/lib/modules/extramodules-`uname -r | cut -d"." -f1,2`-ARCH/version)
+}
+
+post_upgrade() {
+  post_install
+}
+
+post_remove() {
+  post_install
+}
+
+# vim:set ts=2 sw=2 et:
